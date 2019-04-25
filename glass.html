@@ -163,6 +163,8 @@
                         </div>
                     </div>
 
+                    <div id="insert"></div>
+
                     <!-- Single Product Area -->
                     <div class="col-12 col-sm-6 col-md-12 col-xl-6">
                         <div class="single-product-wrapper">
@@ -276,6 +278,31 @@
     <script src="js/plugins.js"></script>
     <!-- Active js -->
     <script src="js/active.js"></script>
+
+    <script>
+        //https://laetus.blob.core.windows.net/images?comp=list
+        var xhr = new XMLHttpRequest;
+        xhr.open('GET', 'https://laetus.blob.core.windows.net/images?comp=list');
+
+        // If specified, responseType must be empty string or "document"
+        xhr.responseType = 'document';
+
+        // Force the response to be parsed as XML
+        xhr.overrideMimeType('text/xml');
+
+        xhr.onload = function () {
+        if (xhr.readyState === xhr.DONE && xhr.status === 200) {
+            var arr = xhr.responseXML.children[0].getElementsByTagName("Blobs")[0].children;
+            for (let index = 0; index < arr.length; index++) {
+                console.log(arr[index].getElementsByTagName("Name")[0]);
+                
+            }
+          
+        }
+        };
+
+xhr.send();
+    </script>
 
 </body>
 
