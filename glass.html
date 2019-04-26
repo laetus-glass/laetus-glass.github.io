@@ -86,10 +86,7 @@
 
 
 
-                <div class="row">
-
-                    <div id="insert"></div>
-                </div>
+                <div id="insert" class="row"></div>
             </div>
         </div>
     </div>
@@ -157,8 +154,8 @@
                 }
                 products.forEach(p => {
                     let node = document.createElement('div');
+                    node.classList = 'col-12 col-sm-12 col-md-12 col-xl-6';
                     node.innerHTML = `<!-- Single Product Area -->\
-                    <div class="col-12 col-sm-6 col-md-12 col-xl-6">\
                         <div class="single-product-wrapper" id="Product${p[0].getElementsByTagName("Name")[0].textContent.split('/')[0]}">\
                             <!-- Product Image -->\
                             <div class="product-img">\
@@ -177,8 +174,7 @@
                                     </a>\
                                 </div>\
                             </div>\
-                        </div>\
-                    </div>`;
+                        </div>`;
                     document.getElementById('insert').appendChild(node);
                 });
 
